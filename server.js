@@ -1,3 +1,4 @@
+import "dotenv/config.js"
 import createError from 'http-errors'
 import express from 'express'
 import path from 'path'
@@ -33,9 +34,11 @@ app.use(
 )
 
 // mounted routers
-app.use(methodOverride("_method"))
+
 app.use('/', indexRouter)
 app.use('/flights', flightsRouter)
+
+app.use(methodOverride("_method"))
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -11,6 +11,7 @@ import ("./config/database.js")
 // import routers
 import { router as indexRouter } from './routes/index.js'
 import { router as flightsRouter } from './routes/flights.js'
+import { router as destinationsRouter } from "./routes/destinations.js"
 
 // set up app
 const app = express()
@@ -37,6 +38,7 @@ app.use(
 
 app.use('/', indexRouter)
 app.use('/flights', flightsRouter)
+app.use("/destinations", destinationsRouter)
 
 app.use(methodOverride("_method"))
 

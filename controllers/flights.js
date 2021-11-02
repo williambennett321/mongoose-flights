@@ -16,6 +16,9 @@ res.render("flights/new", {
   })
 }
 function create (req,res) {
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
   const flight = new Flight(req.body)
   flight.save(function(err, flight){
     if (err) {

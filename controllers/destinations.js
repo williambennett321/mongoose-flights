@@ -9,7 +9,14 @@ function newDestination(req, res) {
   })
 }
 
+function create(req,res) {
+Destination.create(req.body, function (err,  destination) {
+  res.redirect("/destinations/new")
+})
+}
+
 
 export {
-  newDestination as new
+  newDestination as new,
+  create
 }

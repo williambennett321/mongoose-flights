@@ -40,15 +40,13 @@
 
 <div>Destination List:</div>
     <ul>
-      <%- flight.destination.map(d => 
-        `<li>${d.airport}</li>`
-      ).join('') %>
+      <%- flight.destinations.map(d => `<li>${d.airport}</li>`).join('') %>
     </ul>
     
-  <form id="add-dest-on-flight" action="/flights/<%= movie._id %>/destinations" method="POST">
+  <form id="add-dest-on-flight" action="/flights/<%= flight._id %>destinations" method="POST">
     <select name="destinationId">
       <%- destinations.map(d => 
-        `<option value="${d._id}">${d.name}</option>`
+        `<option value="${d._id}">${d.airport}</option>`
       ).join('') %>
     </select>
     <button type="submit">Add Destination to Flight</button>
